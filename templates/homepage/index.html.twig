@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+
+  <nav class="navbar">
+    <div class="container-fluid navbar-container">
+      <div class="row row-container">
+        <div class="col-lg-12">
+          <div class="row">
+            {% if not app.user %}
+              <a type="button" class="offset-lg-9 col-lg-1 link-header" data-toggle="modal" id="showModalLogin" href="{{path("login")}}">
+                Connexion
+              </a>
+            {% else %}
+              <div class="offset-lg-8 col-lg-1">
+                <a type="button" class="link-header"href="#">Nos offres</a>
+              </div>
+              <div class="col-lg-1">
+                <a type="button" class="link-header" id="logoutButton" href="{{path("logout")}}">Deconnexion</a>
+              </div>
+              <div class="col-lg-1">
+                <a type="button" class="link-header" href="{{path("admin")}}">Administration</a>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section class="homepage-section-first-image">
+  </section>
+  <section>
+  </section>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="modalLoginTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalLoginTitle"></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" id="modalBodyLogin" >
+        </div>
+        <div class="modal-footer">
+          <a type="button" class="" data-toggle="modal" href="{{path("register")}}" id="signupButtonModalSwitch" style="display: block;" >Inscription</a>
+          <a type="button" class="" data-toggle="modal" href="{{path("login")}}" id="loginButtonModalSwitch" style="display: none;" >Connexion</a>
+          <a type="button" class="btn btn-primary" data-toggle="modal" href="{{path("register")}}" id="signupButtonModalSend" style="display: none;" >Inscription</a>
+          <a type="button" class="btn btn-primary" data-toggle="modal" href="{{path("login")}}" id="loginButtonModalSend" style="display: block;">Connexion</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

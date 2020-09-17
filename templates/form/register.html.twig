@@ -1,0 +1,5 @@
+    {{ form_start(formRegister, {'attr': {'id' : 'signupFormModal'}}) }}
+        {{ form_row( formRegister.email ) }}
+        {{ form_row( formRegister.password.first ) }}
+        {{ form_row( formRegister.password.second ) }}
+    {{ form_end(formRegister) }}

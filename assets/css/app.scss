@@ -1,0 +1,38 @@
+@import "~bootstrap/scss/bootstrap";
+
+// balises
+section{
+    height: 100vh;
+}
+
+// classes
+.homepage-section-first-image {
+    max-width : 100%;
+    max-height : 100%;
+    min-height : 100%;
+    background-size : cover;
+    background : url("/build/images/photo-of-santorini-greece-1010657.jpg") no-repeat center;
+}
+.navbar{
+    position: fixed;
+    width : 100%;
+}
+.navbar-container{
+    padding-top : 20px;
+}
+.row-container{
+    width : 100%;
+}
+.modal-dialog{
+    z-index: 1000;
+}
+
+// ids
+.link-header{
+    color : white;
+    font-size : 22px;
+}
+.link-header:hover{
+    text-decoration: none;
+    color: #47a7f5;
+}

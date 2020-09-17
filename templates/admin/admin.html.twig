@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('administration') }}
+    {{ encore_entry_link_tags('app') }}
+{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <nav class="navbar navbar-light">
+                    <div class="container-fluid navbar-container">
+                      <div class="row row-container">
+                        <div class="col-lg-12">
+                          <div class="row">
+                            {% if not app.user %}
+                              <a type="button" class="offset-lg-9 col-lg-1 link-header" data-toggle="modal" id="showModalLogin" href="{{path("login")}}">
+                                Connexion
+                              </a>
+                            {% else %}
+                              <div class="offset-lg-8 col-lg-1">
+                                <a type="button" class="link-header"href="#">Nos offres</a>
+                              </div>
+                              <div class="col-lg-1">
+                                <a type="button" class="link-header" id="logoutButton" href="{{path("logout")}}"> Deconnexion </a>
+                              </div>
+                              <div class="col-lg-1">
+                                <a type="button" class="link-header" href="{{ path("admin") }}">Administration</a>
+                              </div>
+                            {% endif %}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </nav>
+            </div>
+            <div class="col-lg-1">
+                <div class="wrapper">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <nav id="sidebar" class="navbar-light" > 
+                                    <ul class="list-unstyled components">
+                                        <p>Dummy Heading</p>
+                                        <li>
+                                          <span id="createHotelLink" class="linkSectionContent" href="{{ path("createHotel") }}">Création d'hotel</span>
+                                        </li>
+                                        <li>
+                                          <span id="createRoomLink" class="linkSectionContent" href="{{ path("listHotels") }}">Liste des hôtels</span>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="content-div" class="col-lg-10">
+                <div class="container-fluid">
+                    <div class="row">
+                      <div id="content" class="col-lg-12">
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    {{ encore_entry_script_tags('administration') }}
+{% endblock %}

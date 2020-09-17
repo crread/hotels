@@ -1,0 +1,23 @@
+{{ form_start(formHotelNew, { 'attr' : { 'id' : 'hotelNewForm' , 'method' : 'POST' }} ) }}
+    <div class="form-group">
+        {{ form_row( formHotelNew.name , {'attr' : { 'class' : 'form-control' }} ) }}
+    </div>
+    <div class="form-group">
+        {{ form_row( formHotelNew.street , {'attr' : { 'class' : 'form-control' }} ) }}
+    </div>
+    <div class="form-group">
+        {{ form_row( formHotelNew.country , {'attr' : { 'class' : 'form-control' }} ) }}
+    </div>
+    <div class="form-group">
+        {{ form_row( formHotelNew.img , {'attr' : { 'type' : 'file' , 'class' : 'form-control-file' }} ) }}
+    </div>
+    <div class="form-group" id="exp_list" data-prototype='{{ form_widget( formHotelNew.rooms.vars.prototype|e("html_attr") ) }}'>
+        {% for room in formHotelNew.rooms %}
+            <div class="div-room">
+                {{ form_row(room) }}
+            </div>
+        {% endfor %}
+    </div>
+{{ form_end(formHotelNew) }}
+<button id="submitNewHotel" type="submit" class="btn btn-primary">Envoyer</button>
+</div>
